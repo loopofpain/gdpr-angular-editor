@@ -1,8 +1,10 @@
-import {Inject, Injectable} from '@angular/core';
-import {HttpClient, HttpEvent} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {DOCUMENT} from '@angular/common';
-import {CustomClass} from './config';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { CustomClass } from './config';
+import { Language } from './language.enum';
+import { Translation } from './translation.model';
 
 export interface UploadResponse {
   imageUrl: string;
@@ -16,10 +18,88 @@ export class AngularEditorService {
   uploadUrl: string;
   uploadWithCredentials: boolean;
 
+  public selectedLanguage: Language = Language.English;
+
+
   constructor(
     private http: HttpClient,
     @Inject(DOCUMENT) private doc: any
   ) { }
+
+  public getTranslation(): Translation {
+    switch (this.selectedLanguage) {
+      case Language.English:
+        return this.getEnglishTranslation();
+      case Language.German:
+          return this.getGermanTranslation();
+      default:
+        throw new Error('Language is not supported!');
+    }
+  }
+
+  private getEnglishTranslation(): Translation {
+    const englishTranslation: Translation = {
+      undo: "Undo",
+      redo: "Redo",
+      bold: "Bold",
+      italic: "Italic",
+      underline: "Underline",
+      strikethrough: "Strikethrough",
+      subscript: "Subscript",
+      superscript: "Superscript",
+      justifyLeft: "Justify Left",
+      justifyCenter: "Justify Center",
+      justifyRight: "Justify Right",
+      justifyFull: "Justify Full",
+      indent: "Indent",
+      outdent: "Outdent",
+      unorderedList: "Unordered List",
+      orderedList: "Ordered List",
+      textColor: "Text Color",
+      backgroundColor: "Background Color",
+      insertLink: "Insert Link",
+      unlink: "Unlink",
+      insertImage: "Insert Image",
+      insertVideo: "Insert Video",
+      horizontalLine: "Horizontal Line",
+      clearFormatting: "Clear Formatting",
+      htmlCode: "HTML Code"
+    };
+
+    return englishTranslation;
+  }
+
+  private getGermanTranslation(): Translation {
+    const englishTranslation: Translation = {
+      undo: "Rückgängig machen",
+      redo: "Wiederholen",
+      bold: "Bold",
+      italic: "Italic",
+      underline: "Underline",
+      strikethrough: "Strikethrough",
+      subscript: "Subscript",
+      superscript: "Superscript",
+      justifyLeft: "Justify Left",
+      justifyCenter: "Justify Center",
+      justifyRight: "Justify Right",
+      justifyFull: "Justify Full",
+      indent: "Indent",
+      outdent: "Outdent",
+      unorderedList: "Unordered List",
+      orderedList: "Ordered List",
+      textColor: "Text Color",
+      backgroundColor: "Background Color",
+      insertLink: "Insert Link",
+      unlink: "Unlink",
+      insertImage: "Insert Image",
+      insertVideo: "Insert Video",
+      horizontalLine: "Horizontal Line",
+      clearFormatting: "Clear Formatting",
+      htmlCode: "HTML Code"
+    };
+
+    return englishTranslation;
+  }
 
   /**
    * Executed command from editor header buttons exclude toggleEditorMode
@@ -248,7 +328,7 @@ export class AngularEditorService {
     } else {
       // Iterate nodes until we hit the end container
       while (node && node !== endNode) {
-        rangeNodes.push( node = this.nextNode(node) );
+        rangeNodes.push(node = this.nextNode(node));
       }
 
       // Add partially selected nodes at the start of the range

@@ -95,6 +95,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngOnInit() {
+    this.editorService.selectedLanguage = this.config.selectedLanguage;
     this.config.toolbarPosition = this.config.toolbarPosition ? this.config.toolbarPosition : angularEditorConfig.toolbarPosition;
   }
 
