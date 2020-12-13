@@ -17,6 +17,9 @@
     "rxjs": "^6.x.x"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "i": "^0.3.6",
+    "npm": "^7.1.2",
     "tslib": "^2.0.0"
   },
   "keywords": [
