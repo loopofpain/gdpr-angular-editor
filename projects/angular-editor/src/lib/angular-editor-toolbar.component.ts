@@ -22,7 +22,7 @@ export class AngularEditorToolbarComponent {
   backColor;
 
   headings: SelectOption[];
-  
+
   fontSizes: SelectOption[] = [
     {
       label: '1',
@@ -111,7 +111,7 @@ export class AngularEditorToolbarComponent {
 
   constructor(
     private r: Renderer2,
-    private editorService: AngularEditorService,
+    public editorService: AngularEditorService,
     private er: ElementRef,
     @Inject(DOCUMENT) private doc: any
   ) {

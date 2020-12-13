@@ -83,7 +83,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
 
   constructor(
     private r: Renderer2,
-    private editorService: AngularEditorService,
+    public editorService: AngularEditorService,
     @Inject(DOCUMENT) private doc: any,
     private sanitizer: DomSanitizer,
     private cdRef: ChangeDetectorRef,
