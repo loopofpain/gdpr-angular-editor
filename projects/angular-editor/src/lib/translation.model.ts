@@ -1,3 +1,5 @@
+import { SelectOption } from "./ae-select/ae-select.component";
+
 export class Translation {
     public undo: string;
     public redo: string;
@@ -24,4 +26,5 @@ export class Translation {
     public horizontalLine: string;
     public clearFormatting: string;
     public htmlCode: string;
+    public headings: SelectOption[];
 }

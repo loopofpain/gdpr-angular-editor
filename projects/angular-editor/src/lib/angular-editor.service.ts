@@ -63,7 +63,53 @@ export class AngularEditorService {
       insertVideo: "Insert Video",
       horizontalLine: "Horizontal Line",
       clearFormatting: "Clear Formatting",
-      htmlCode: "HTML Code"
+      htmlCode: "HTML Code",
+      headings: [
+        {
+          label: 'Heading 1',
+          value: 'h1',
+        },
+        {
+          label: 'Heading 2',
+          value: 'h2',
+        },
+        {
+          label: 'Heading 3',
+          value: 'h3',
+        },
+        {
+          label: 'Heading 4',
+          value: 'h4',
+        },
+        {
+          label: 'Heading 5',
+          value: 'h5',
+        },
+        {
+          label: 'Heading 6',
+          value: 'h6',
+        },
+        {
+          label: 'Heading 7',
+          value: 'h7',
+        },
+        {
+          label: 'Paragraph',
+          value: 'p',
+        },
+        {
+          label: 'Predefined',
+          value: 'pre'
+        },
+        {
+          label: 'Standard',
+          value: 'div'
+        },
+        {
+          label: 'default',
+          value: 'default'
+        }
+      ]
     };
 
     return englishTranslation;
@@ -95,7 +141,53 @@ export class AngularEditorService {
       insertVideo: "Video einfügen",
       horizontalLine: "Linie",
       clearFormatting: "Formattierungen löschen",
-      htmlCode: "HTML Quelltext"
+      htmlCode: "HTML Quelltext",
+      headings: [
+        {
+          label: 'Überschrift 1',
+          value: 'h1',
+        },
+        {
+          label: 'Überschrift 2',
+          value: 'h2',
+        },
+        {
+          label: 'Überschrift 3',
+          value: 'h3',
+        },
+        {
+          label: 'Überschrift 4',
+          value: 'h4',
+        },
+        {
+          label: 'Überschrift 5',
+          value: 'h5',
+        },
+        {
+          label: 'Überschrift 6',
+          value: 'h6',
+        },
+        {
+          label: 'Überschrift 7',
+          value: 'h7',
+        },
+        {
+          label: 'Absatz',
+          value: 'p',
+        },
+        {
+          label: 'Vorformattiert',
+          value: 'pre'
+        },
+        {
+          label: 'Standard',
+          value: 'div'
+        },
+        {
+          label: 'Standard 2',
+          value: 'default'
+        }
+      ]
     };
 
     return englishTranslation;
