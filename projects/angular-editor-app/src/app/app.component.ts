@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularEditorConfig} from '../../../angular-editor/src/public-api';
+import {AngularEditorConfig, Language} from '../../../angular-editor/src/public-api';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   htmlContent2 = '';
 
   config1: AngularEditorConfig = {
+    selectedLanguage: Language.German,
     editable: true,
     spellcheck: true,
     minHeight: '5rem',
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
   };
 
   config2: AngularEditorConfig = {
+    selectedLanguage: Language.English,
     editable: true,
     spellcheck: true,
     minHeight: '5rem',

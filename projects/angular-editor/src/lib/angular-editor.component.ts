@@ -83,7 +83,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
 
   constructor(
     private r: Renderer2,
-    private editorService: AngularEditorService,
+    public editorService: AngularEditorService,
     @Inject(DOCUMENT) private doc: any,
     private sanitizer: DomSanitizer,
     private cdRef: ChangeDetectorRef,
@@ -95,6 +95,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngOnInit() {
+    this.editorService.selectedLanguage = this.config.selectedLanguage;
     this.config.toolbarPosition = this.config.toolbarPosition ? this.config.toolbarPosition : angularEditorConfig.toolbarPosition;
   }
 

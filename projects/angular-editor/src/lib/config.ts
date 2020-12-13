@@ -1,6 +1,8 @@
 import { UploadResponse } from './angular-editor.service';
 import { HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Translation } from './translation.model';
+import { Language } from './language.enum';
 
 export interface CustomClass {
   name: string;
@@ -14,6 +16,7 @@ export interface Font {
 }
 
 export interface AngularEditorConfig {
+  selectedLanguage: Language;
   editable?: boolean;
   spellcheck?: boolean;
   height?: 'auto' | string;
@@ -40,6 +43,7 @@ export interface AngularEditorConfig {
 }
 
 export const angularEditorConfig: AngularEditorConfig = {
+  selectedLanguage: Language.English,
   editable: true,
   spellcheck: true,
   height: 'auto',

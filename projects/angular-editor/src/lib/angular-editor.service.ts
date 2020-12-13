@@ -1,8 +1,10 @@
-import {Inject, Injectable} from '@angular/core';
-import {HttpClient, HttpEvent} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {DOCUMENT} from '@angular/common';
-import {CustomClass} from './config';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { CustomClass } from './config';
+import { Language } from './language.enum';
+import { Translation } from './translation.model';
 
 export interface UploadResponse {
   imageUrl: string;
@@ -16,10 +18,180 @@ export class AngularEditorService {
   uploadUrl: string;
   uploadWithCredentials: boolean;
 
+  public selectedLanguage: Language = Language.English;
+
+
   constructor(
     private http: HttpClient,
     @Inject(DOCUMENT) private doc: any
   ) { }
+
+  public getTranslation(): Translation {
+    switch (this.selectedLanguage) {
+      case Language.English:
+        return this.getEnglishTranslation();
+      case Language.German:
+          return this.getGermanTranslation();
+      default:
+        throw new Error('Language is not supported!');
+    }
+  }
+
+  private getEnglishTranslation(): Translation {
+    const englishTranslation: Translation = {
+      undo: "Undo",
+      redo: "Redo",
+      bold: "Bold",
+      italic: "Italic",
+      underline: "Underline",
+      strikethrough: "Strikethrough",
+      subscript: "Subscript",
+      superscript: "Superscript",
+      justifyLeft: "Justify Left",
+      justifyCenter: "Justify Center",
+      justifyRight: "Justify Right",
+      justifyFull: "Justify Full",
+      indent: "Indent",
+      outdent: "Outdent",
+      unorderedList: "Unordered List",
+      orderedList: "Ordered List",
+      textColor: "Text Color",
+      backgroundColor: "Background Color",
+      insertLink: "Insert Link",
+      unlink: "Unlink",
+      insertImage: "Insert Image",
+      insertVideo: "Insert Video",
+      horizontalLine: "Horizontal Line",
+      clearFormatting: "Clear Formatting",
+      htmlCode: "HTML Code",
+      headings: [
+        {
+          label: 'Heading 1',
+          value: 'h1',
+        },
+        {
+          label: 'Heading 2',
+          value: 'h2',
+        },
+        {
+          label: 'Heading 3',
+          value: 'h3',
+        },
+        {
+          label: 'Heading 4',
+          value: 'h4',
+        },
+        {
+          label: 'Heading 5',
+          value: 'h5',
+        },
+        {
+          label: 'Heading 6',
+          value: 'h6',
+        },
+        {
+          label: 'Heading 7',
+          value: 'h7',
+        },
+        {
+          label: 'Paragraph',
+          value: 'p',
+        },
+        {
+          label: 'Predefined',
+          value: 'pre'
+        },
+        {
+          label: 'Standard',
+          value: 'div'
+        },
+        {
+          label: 'default',
+          value: 'default'
+        }
+      ]
+    };
+
+    return englishTranslation;
+  }
+
+  private getGermanTranslation(): Translation {
+    const englishTranslation: Translation = {
+      undo: "Rückgängig machen",
+      redo: "Wiederholen",
+      bold: "Fett",
+      italic: "Kursiv",
+      underline: "Unterstrichen",
+      strikethrough: "Durchgestrichen",
+      subscript: "Tiefgestellt",
+      superscript: "Hochgestellt",
+      justifyLeft: "Linksbündig",
+      justifyCenter: "Zentriert",
+      justifyRight: "Rechtsbündig",
+      justifyFull: "Blocksatz",
+      indent: "Einrücken",
+      outdent: "Ausrücken",
+      unorderedList: "Ungeordnete Liste",
+      orderedList: "Geordnete Liste",
+      textColor: "Textfarbe",
+      backgroundColor: "Hintergrundfarbe",
+      insertLink: "Link einfügen",
+      unlink: "Link entfernen",
+      insertImage: "Bild einfügen",
+      insertVideo: "Video einfügen",
+      horizontalLine: "Linie",
+      clearFormatting: "Formattierungen löschen",
+      htmlCode: "HTML Quelltext",
+      headings: [
+        {
+          label: 'Überschrift 1',
+          value: 'h1',
+        },
+        {
+          label: 'Überschrift 2',
+          value: 'h2',
+        },
+        {
+          label: 'Überschrift 3',
+          value: 'h3',
+        },
+        {
+          label: 'Überschrift 4',
+          value: 'h4',
+        },
+        {
+          label: 'Überschrift 5',
+          value: 'h5',
+        },
+        {
+          label: 'Überschrift 6',
+          value: 'h6',
+        },
+        {
+          label: 'Überschrift 7',
+          value: 'h7',
+        },
+        {
+          label: 'Absatz',
+          value: 'p',
+        },
+        {
+          label: 'Vorformattiert',
+          value: 'pre'
+        },
+        {
+          label: 'Standard',
+          value: 'div'
+        },
+        {
+          label: 'Standard 2',
+          value: 'default'
+        }
+      ]
+    };
+
+    return englishTranslation;
+  }
 
   /**
    * Executed command from editor header buttons exclude toggleEditorMode
@@ -248,7 +420,7 @@ export class AngularEditorService {
     } else {
       // Iterate nodes until we hit the end container
       while (node && node !== endNode) {
-        rangeNodes.push( node = this.nextNode(node) );
+        rangeNodes.push(node = this.nextNode(node));
       }
 
       // Add partially selected nodes at the start of the range
