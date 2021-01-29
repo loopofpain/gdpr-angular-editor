@@ -1,6 +1,6 @@
 {
   "name": "@loopofpain/gdpr-angular-editor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple native WYSIWYG editor for Angular 6+, 7+, 8+. Rich Text editor component for Angular.",
   "author": "loopofpain",
   "repository": "https://github.com/loopofpain/gdpr-angular-editor",
