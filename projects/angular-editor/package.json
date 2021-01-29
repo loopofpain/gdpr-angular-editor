@@ -10,11 +10,11 @@
     "url": "https://github.com/loopofpain/gdpr-angular-editor/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=8.0.0 <11",
-    "@angular/core": ">=8.0.0 <11",
-    "@angular/forms": ">=8.0.0 <11",
-    "@angular/platform-browser": ">=8.0.0 <11",
-    "rxjs": "^6.x.x"
+    "@angular/common": "^11.1.1",
+    "@angular/core": "^11.1.1",
+    "@angular/forms": "11.1.1",
+    "@angular/platform-browser": "11.1.1",
+    "rxjs": "^6.6.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
